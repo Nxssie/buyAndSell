@@ -1,0 +1,31 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+/frontend/buyAndSell/*~
+/frontend/buyAndSell/*.sw[mnpcod]
+/frontend/buyAndSell/.tmp
+/frontend/buyAndSell/*.tmp
+/frontend/buyAndSell/*.tmp.*
+/frontend/buyAndSell/*.sublime-project
+/frontend/buyAndSell/*.sublime-workspace
+/frontend/buyAndSell/.DS_Store
+/frontend/buyAndSell/Thumbs.db
+/frontend/buyAndSell/UserInterfaceState.xcuserstate
+/frontend/buyAndSell/$RECYCLE.BIN/
+
+/frontend/buyAndSell/*.log
+/frontend/buyAndSell/log.txt
+/frontend/buyAndSell/npm-debug.log*
+
+/frontend/buyAndSell/.idea
+/frontend/buyAndSell/.ionic
+/frontend/buyAndSell/.sass-cache
+/frontend/buyAndSell/.sourcemaps
+/frontend/buyAndSell/.versions
+/frontend/buyAndSell/.vscode
+/frontend/buyAndSell/coverage
+/frontend/buyAndSell/dist
+/frontend/buyAndSell/node_modules
+/frontend/buyAndSell/platforms
+/frontend/buyAndSell/plugins
+/frontend/buyAndSell/www
