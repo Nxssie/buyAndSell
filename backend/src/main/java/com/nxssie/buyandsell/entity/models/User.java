@@ -1,5 +1,7 @@
 package com.nxssie.buyandsell.entity.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -22,7 +24,8 @@ public class User implements Serializable {
     @Column
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private Set<Car> cars;
 
