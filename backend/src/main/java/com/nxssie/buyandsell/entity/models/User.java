@@ -22,7 +22,7 @@ public class User implements Serializable {
     @Column
     private String password;
 
-    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY,
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Car> cars;
 
