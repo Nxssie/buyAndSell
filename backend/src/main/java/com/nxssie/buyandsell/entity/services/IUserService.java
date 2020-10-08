@@ -1,6 +1,5 @@
 package com.nxssie.buyandsell.entity.services;
 
-import com.nxssie.buyandsell.entity.models.Car;
 import com.nxssie.buyandsell.entity.models.User;
 
 import java.util.List;
@@ -15,4 +14,6 @@ public interface IUserService {
     void updateUser(long id, User car);
 
     User findById(long id);
+
+    User findByUsername(String username);
 }

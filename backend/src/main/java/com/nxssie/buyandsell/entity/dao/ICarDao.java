@@ -1,8 +1,6 @@
 package com.nxssie.buyandsell.entity.dao;
 
 import com.nxssie.buyandsell.entity.models.Car;
-import com.nxssie.buyandsell.entity.models.User;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

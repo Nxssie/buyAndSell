@@ -1,20 +1,18 @@
 package com.nxssie.buyandsell.entity.services;
 
-import com.nxssie.buyandsell.entity.dao.ICarDao;
 import com.nxssie.buyandsell.entity.dao.IUserDao;
-import com.nxssie.buyandsell.entity.models.Car;
 import com.nxssie.buyandsell.entity.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class IUserServiceImpl implements IUserService {
 
     @Autowired
     IUserDao userDao;
-    ICarDao carDao;
 
     @Override
     public List<User> getAll() {
@@ -26,6 +24,19 @@ public class IUserServiceImpl implements IUserService {
         Optional<User> u = userDao.findById(id);
 
         return u.orElse(null);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        User u = new User();
+        List<User> listUser = (List<User>) userDao.findAll();
+        for (User u1 : listUser) {
+            if (u1.getUsername().equals(username)) {
+                u = u1;
+                return u;
+            }
+        }
+        return u;
     }
 
     @Override

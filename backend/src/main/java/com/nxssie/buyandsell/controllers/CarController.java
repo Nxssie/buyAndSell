@@ -1,7 +1,6 @@
 package com.nxssie.buyandsell.controllers;
 
 import com.nxssie.buyandsell.entity.models.Car;
-import com.nxssie.buyandsell.entity.models.User;
 import com.nxssie.buyandsell.entity.services.ICarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

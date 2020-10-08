@@ -2,9 +2,7 @@ package com.nxssie.buyandsell.entity.services;
 
 import com.nxssie.buyandsell.entity.dao.ICarDao;
 import com.nxssie.buyandsell.entity.models.Car;
-import com.nxssie.buyandsell.entity.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class ICarServiceImpl implements ICarService {
-
     @Autowired
     ICarDao iCarDao;
 
