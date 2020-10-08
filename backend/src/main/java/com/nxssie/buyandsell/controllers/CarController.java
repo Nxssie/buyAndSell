@@ -30,17 +30,17 @@ public class CarController {
     }
 
     @PostMapping("/api/buyandsell")
-    private void addBicycle(Car car) {
+    private void addCar(Car car) {
         iCarService.addCar(car);
     }
 
     @DeleteMapping("/api/buyandsell/{id}")
-    private void deleteBicycle(@PathVariable(value = "id") long id) {
+    private void deleteCar(@PathVariable(value = "id") long id) {
         iCarService.deleteCar(id);
     }
 
     @PutMapping("/api/buyandsell/{id}")
-    private void updateBicycle(@PathVariable(value = "id") long id, Car car) {
+    private void updateCar(@PathVariable(value = "id") long id, Car car) {
         iCarService.updateCar(id, car);
     }
 }

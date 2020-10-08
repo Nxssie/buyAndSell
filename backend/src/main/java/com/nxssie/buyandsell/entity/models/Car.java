@@ -32,6 +32,7 @@ public class Car implements Serializable {
 
     public Car(long id, String brand, String model, long kms, int year, User user) {
         super();
+
         this.id = id;
         this.brand = brand;
         this.model = model;
