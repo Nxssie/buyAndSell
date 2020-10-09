@@ -28,17 +28,19 @@ public class Car implements Serializable {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Car() { }
-
     public Car(long id, String brand, String model, long kms, int year, User user) {
         super();
 
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.kms = kms;
-        this.year = year;
-        this.user = user;
+        setId(id);
+        setBrand(brand);
+        setModel(model);
+        setKms(kms);
+        setYear(year);
+        setUser(user);
+    }
+
+    public Car() {
+
     }
 
     public long getId() {
@@ -88,4 +90,5 @@ public class Car implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

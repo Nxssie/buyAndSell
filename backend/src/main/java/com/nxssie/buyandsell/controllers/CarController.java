@@ -25,13 +25,13 @@ public class CarController {
     }
 
     @GetMapping("/api/buyandsell/user/{id}")
-    private List<Car> findByUserid(@PathVariable(value = "id") Long id) {
+    private List<Car> findByUserid(@PathVariable(value = "id") long id) {
         return iCarService.findByUserId(id);
     }
 
-    @PostMapping("/api/buyandsell")
-    private void addCar(Car car) {
-        iCarService.addCar(car);
+    @PostMapping("/api/buyandsell/{userId}")
+    private void addCar(@PathVariable(value = "userId") long userId, Car car) {
+        iCarService.addCar(car, userId);
     }
 
     @DeleteMapping("/api/buyandsell/{id}")

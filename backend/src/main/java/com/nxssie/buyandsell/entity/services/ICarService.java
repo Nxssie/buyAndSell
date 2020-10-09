@@ -1,13 +1,14 @@
 package com.nxssie.buyandsell.entity.services;
 
 import com.nxssie.buyandsell.entity.models.Car;
+import com.nxssie.buyandsell.entity.models.User;
 
 import java.util.List;
 
 public interface ICarService {
     List<Car> getAll();
 
-    void addCar(Car car);
+    void addCar(Car car, long userId);
 
     void deleteCar(long id);
 

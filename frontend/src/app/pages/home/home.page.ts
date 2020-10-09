@@ -19,8 +19,27 @@ export class HomePage implements OnInit {
       password: ['']
     })
   }
+// On init we're interested on checking if the current user is already logged (future implements)
+  ngOnInit(){
+    this.checkIfUserIsAlreadyLogged();
+  }
 
-  ngOnInit(){}
+/*Once we had initialize this app we could check again if the user is logged when him comeback here because 
+  our homepage is just a login/register page  */
+  ionViewWillEnter() {
+    this.checkIfUserIsAlreadyLogged();
+  }
+
+/*Obviously a checking. If this returns null means that the user is not currently identified and can
+continue to the homepage in case of returning the user id he is redirected to posts page*/   
+  checkIfUserIsAlreadyLogged() {
+    let currentUserId = this.userService.getCurrentUserId();
+    if(currentUserId == null) {
+      this.router.navigateByUrl("/home");
+    } else {
+      this.router.navigateByUrl("/posts");
+    }
+  }
   
   onFormSubmit() {
     if (!this.loginForm.valid) {
@@ -28,10 +47,19 @@ export class HomePage implements OnInit {
     } else {
       let user = {
         id: null,
-        brand: this.loginForm.value.brand,
-        model: this.loginForm.value.model
+        username: this.loginForm.value.username,
+        password: this.loginForm.value.password
       }
-
+      this.userService.getAll().subscribe((res) => {
+        let compareUser = this.userService.getUserByUsername(user.username).subscribe((res) => {
+          if (compareUser == null) {
+            return null
+          } else {
+            this.userService.setCurrentUserId(res.id);
+            this.router.navigateByUrl("/posts");
+          }
+        });
+      });
     }
   }
 

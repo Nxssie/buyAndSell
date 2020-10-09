@@ -1,21 +1,21 @@
 <ion-app>
-
-  <IonMenu side="start" menuId="first">
-    <IonHeader>
-      <IonToolbar color="primary">
-        <IonTitle>Start Menu</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent>
-      <IonList>
-        <IonItem>Menu Item</IonItem>
-        <IonItem>Menu Item</IonItem>
-        <IonItem>Menu Item</IonItem>
-        <IonItem>Menu Item</IonItem>
-        <IonItem>Menu Item</IonItem>
-      </IonList>
-    </IonContent>
-  </IonMenu>
+  <ion-menu-button menu="first"></ion-menu-button>
+  <ion-menu side="start" menu-id="first" content-id="principal">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Main Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="goHome()"><ion-icon name="home"></ion-icon>Home</ion-item>
+        <ion-item (click)="seePosts()"><ion-icon name="car-sport-outline"></ion-icon> Buy a Car</ion-item>
+        <ion-item (click)="sellCar()"><ion-icon name="cash-outline"></ion-icon> Sell a car</ion-item>
+        <ion-item (click)="goProfile()"><ion-icon name="person-circle-outline"></ion-icon> My profile</ion-item>
+        <ion-item (click)="goProfilePosts()"><ion-icon name="list-outline"></ion-icon> My posts </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 
   <ion-router-outlet id="principal"></ion-router-outlet>
 </ion-app>

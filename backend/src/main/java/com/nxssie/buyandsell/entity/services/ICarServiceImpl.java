@@ -1,6 +1,8 @@
 package com.nxssie.buyandsell.entity.services;
 
 import com.nxssie.buyandsell.entity.dao.ICarDao;
+import com.nxssie.buyandsell.entity.models.User;
+import com.nxssie.buyandsell.entity.services.IUserService;
 import com.nxssie.buyandsell.entity.models.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ import java.util.Optional;
 public class ICarServiceImpl implements ICarService {
     @Autowired
     ICarDao iCarDao;
+
+    @Autowired
+    IUserService iUserService;
 
     @Override
     public List<Car> getAll() {
@@ -31,7 +36,9 @@ public class ICarServiceImpl implements ICarService {
     }
 
     @Override
-    public void addCar(Car car) {
+    public void addCar(Car car, long userId) {
+        User u = iUserService.findById(userId);
+        car.setUser(u);
         iCarDao.save(car);
     }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -14,6 +14,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -23,5 +24,25 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  goHome() {
+    this.router.navigateByUrl("/home");
+  }
+
+  seePosts() {
+    this.router.navigateByUrl("/posts");
+  }
+
+  sellCar() {
+    this.router.navigateByUrl("/add-car");
+  }
+
+  goProfile() {
+    this.router.navigateByUrl("/profile");
+  }
+
+  goProfilePosts() {
+    this.router.navigateByUrl("/my-posts")
   }
 }
