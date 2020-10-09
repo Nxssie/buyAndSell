@@ -14,7 +14,7 @@
   </ion-header>
 
   <div id="container">
-    <ion-list lines="full" class="ion-no-margin ion-no-padding ios list-ios list-lines-full list-ios-lines-full hydrated">
+    <ion-list lines="" class="ion-no-margin ion-no-padding ios list-ios list-lines-full list-ios-lines-full hydrated">
       <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
         <ion-item>
           <ion-label position="floating">Username</ion-label>
@@ -31,9 +31,14 @@
             <ion-button type="submit" color="primary" shape="full" expand="block">Login</ion-button>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button href="/register" color="secondary" shape="full" expand="block">Register</ion-button>
+          </ion-col>
+        </ion-row>
       </form>
     </ion-list>
     
-    <ion-button href="/register">Register</ion-button>
+    
   </div>
 </ion-content>

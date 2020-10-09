@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -31,8 +31,6 @@ export class HomePage implements OnInit {
         brand: this.loginForm.value.brand,
         model: this.loginForm.value.model
       }
-      
-      this.userService.
 
     }
   }

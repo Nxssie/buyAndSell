@@ -1,3 +1,21 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <IonMenu side="start" menuId="first">
+    <IonHeader>
+      <IonToolbar color="primary">
+        <IonTitle>Start Menu</IonTitle>
+      </IonToolbar>
+    </IonHeader>
+    <IonContent>
+      <IonList>
+        <IonItem>Menu Item</IonItem>
+        <IonItem>Menu Item</IonItem>
+        <IonItem>Menu Item</IonItem>
+        <IonItem>Menu Item</IonItem>
+        <IonItem>Menu Item</IonItem>
+      </IonList>
+    </IonContent>
+  </IonMenu>
+
+  <ion-router-outlet id="principal"></ion-router-outlet>
 </ion-app>
