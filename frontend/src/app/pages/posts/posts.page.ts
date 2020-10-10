@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Car } from '../../models/car'
 import { CarService } from '../../services/car.service'
+import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'app-posts',
@@ -11,7 +13,9 @@ export class PostsPage implements OnInit {
 
   cars: Car[];
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService,
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getAllPosts();
@@ -19,6 +23,7 @@ export class PostsPage implements OnInit {
 
   ionViewWillEnter() {
     this.getAllPosts();
+    console.log(this.userService.getCurrentUserId());
   }
 
   getAllPosts() {
@@ -26,6 +31,10 @@ export class PostsPage implements OnInit {
       this.cars = cars;
       console.log(this.cars);
     })
+  }
+
+  postACar() {
+    this.router.navigateByUrl("/add-car");
   }
 
 }

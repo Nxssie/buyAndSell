@@ -4,5 +4,4 @@ export class Car {
   model: string;
   kms: number;
   year: number;
-  user_id: number;
 }

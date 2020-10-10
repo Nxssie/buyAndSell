@@ -24,7 +24,7 @@ public class CarController {
         return iCarService.findById(id);
     }
 
-    @GetMapping("/api/buyandsell/user/{id}")
+    @GetMapping("/api/buyandsell/cars/{id}")
     private List<Car> findByUserid(@PathVariable(value = "id") long id) {
         return iCarService.findByUserId(id);
     }

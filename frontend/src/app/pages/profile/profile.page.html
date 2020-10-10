@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      <ion-card-title>{{user.username}}</ion-card-title>
+      <ion-card-subtitle>{{user.email}}</ion-card-subtitle>
+    </ion-card-header>
 
+    <ion-card-content>
+      id: {{user.id}} <br/>
+      password: {{user.password}} <br /> <br/>
+      <p>In this case this is just a test. Password and ID must be hidden in other situation.</p>
+    </ion-card-content>
+
+  </ion-card>
+  <ion-button (click)="deleteUser(user.id)" expand="block" fill="outline">Delete your account</ion-button>
 </ion-content>

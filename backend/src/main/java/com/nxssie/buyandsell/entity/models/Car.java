@@ -24,7 +24,7 @@ public class Car implements Serializable {
     @Column
     private int year;
     
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false,cascade = {CascadeType.REFRESH} ,fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 

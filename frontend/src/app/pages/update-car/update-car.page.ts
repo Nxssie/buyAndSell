@@ -5,20 +5,20 @@ import { UserService } from 'src/app/services/user.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
-  selector: 'app-add-car',
-  templateUrl: './add-car.page.html',
-  styleUrls: ['./add-car.page.scss'],
+  selector: 'app-update-car',
+  templateUrl: './update-car.page.html',
+  styleUrls: ['./update-car.page.scss'],
 })
-export class AddCarPage implements OnInit {
+export class UpdateCarPage implements OnInit {
 
-  addCarForm: FormGroup;
+  updateCarForm: FormGroup;
   currentUserId: number;
 
   constructor(public fb: FormBuilder,
               private router: Router,
               private userService: UserService,
               private carService: CarService) {
-                this.addCarForm = this.fb.group({
+                this.updateCarForm = this.fb.group({
                   brand: [''],
                   model: [''],
                   kms: [''],
@@ -27,6 +27,15 @@ export class AddCarPage implements OnInit {
                }
 
   ngOnInit() {
+    let currentCarId = this.carService.getCurrentCarId();
+    this.carService.getOne(currentCarId).subscribe((car) => {
+      this.updateCarForm.setValue({
+        brand: car['brand'],
+        model: car['model'],
+        kms: car['kms'],
+        year: car['year']
+      })
+    })
     this.currentUserId = this.userService.getCurrentUserId(); 
   }
 
@@ -35,17 +44,17 @@ export class AddCarPage implements OnInit {
   }
 
   onFormSubmit() {
-    if(!this.addCarForm.valid) {
+    if(!this.updateCarForm.valid) {
       return false;
     } else {
       let car = {
         id: null,
-        brand: this.addCarForm.value.brand,
-        model: this.addCarForm.value.model,
-        kms: this.addCarForm.value.kms,
-        year: this.addCarForm.value.year
+        brand: this.updateCarForm.value.brand,
+        model: this.updateCarForm.value.model,
+        kms: this.updateCarForm.value.kms,
+        year: this.updateCarForm.value.year
       }
-      this.carService.addCar(car, this.currentUserId).subscribe((c) => {
+      this.carService.updateCar(car, this.currentUserId).subscribe((c) => {
         this.carService.getAll();
         this.router.navigateByUrl("/posts");
       })

@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sell a car</ion-title>
+    <ion-title>Edit post</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="container">
     <ion-list lines="" class="ion-no-margin ion-no-padding ios list-ios list-lines-full list-ios-lines-full hydrated">
-      <form [formGroup]="addCarForm" (ngSubmit)="onFormSubmit()">
+      <form [formGroup]="updateCarForm" (ngSubmit)="onFormSubmit()">
         <ion-item>
           <ion-label position="floating">Brand</ion-label>
           <ion-input formControlName="brand" type="text" required></ion-input>

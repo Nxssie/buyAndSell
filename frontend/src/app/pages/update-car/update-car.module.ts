@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddCarPageRoutingModule } from './add-car-routing.module';
+import { UpdateCarPageRoutingModule } from './update-car-routing.module';
 
-import { AddCarPage } from './add-car.page';
+import { UpdateCarPage } from './update-car.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { AddCarPage } from './add-car.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    AddCarPageRoutingModule
+    UpdateCarPageRoutingModule
   ],
-  declarations: [AddCarPage]
+  declarations: [UpdateCarPage]
 })
-export class AddCarPageModule {}
+export class UpdateCarPageModule {}

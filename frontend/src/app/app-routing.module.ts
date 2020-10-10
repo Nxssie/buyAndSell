@@ -30,6 +30,14 @@ const routes: Routes = [
     path: 'my-posts',
     loadChildren: () => import('./pages/my-posts/my-posts.module').then( m => m.MyPostsPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'update-car',
+    loadChildren: () => import('./pages/update-car/update-car.module').then( m => m.UpdateCarPageModule)
+  },
 
 
 

@@ -7,24 +7,16 @@
 <ion-content>
   <ion-card *ngFor="let c of cars">
     <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>{{c.brand}}</ion-card-title>
+      <ion-card-subtitle>{{c.model}}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      marca: {{c.brand}} <br/>
-      modelo: {{c.model}} <br/>
       KMs: {{c.kms}} <br/>
-      Año: {{c.year}} <br/>
-      Autor: {{c.user_id}}
+      Año: {{c.year}}
     </ion-card-content>
-
-    <ion-item>
-      <ion-icon (click)="deleteCar(b.id)" name="trash" slot="end"></ion-icon>
-      <ion-icon (click)="updateCar(b.id)" name="settings-outline" slot="end"></ion-icon>
-    </ion-item>
 
   </ion-card>
 
-  <ion-button (click)="insertCar()" expand="block" fill="outline">Post your car</ion-button>
+  <ion-button (click)="postACar()" expand="block" fill="outline">Post your car</ion-button>
 </ion-content>

@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { RegisterPage } from './register.page';
 
-import { AddCarPageRoutingModule } from './add-car-routing.module';
-
-import { AddCarPage } from './add-car.page';
+import { RegisterPageRoutingModule } from './register-routing.module';
 
 @NgModule({
   imports: [
@@ -14,8 +12,8 @@ import { AddCarPage } from './add-car.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    AddCarPageRoutingModule
+    RegisterPageRoutingModule
   ],
-  declarations: [AddCarPage]
+  declarations: [RegisterPage]
 })
-export class AddCarPageModule {}
+export class RegisterPageModule {}

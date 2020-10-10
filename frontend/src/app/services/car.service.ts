@@ -14,7 +14,7 @@ const httpOptions = {
     "Content-Type": "application/x-www-form-urlencoded" }),
 
 };
-const apiUrl = "http://localhost:8080/api/buyandsell/";
+const apiUrl = "http://localhost:8080/api/buyandsell";
 
 @Injectable({
   providedIn: "root",
@@ -45,17 +45,31 @@ export class CarService {
     return this.http.delete(apiUrl + "/" + id);
   }
 
-  addCar(car: Car): Observable<any> {
+  getCarsByUserId(id: number): Observable<Car[]> {
+    return this.http.get<Car[]>(apiUrl + "/cars/" + id);
+  }
+
+  addCar(car: Car, userId: number): Observable<any> {
 
     let bodyEncoded = new URLSearchParams();
     bodyEncoded.append("brand", car.brand);
     bodyEncoded.append("model", car.model);
     bodyEncoded.append("kms", car.kms.toString());
     bodyEncoded.append("year", car.year.toString());
-    bodyEncoded.append("user_id", car.user_id.toString());
     let body = bodyEncoded.toString();
 
-    return this.http.post(apiUrl, body, httpOptions);
+    return this.http.post(apiUrl + "/" + userId, body, httpOptions);
+  }
+
+  updateCar(car: Car, id: number): Observable<any> {
+    let bodyEncoded = new URLSearchParams();
+    bodyEncoded.append("brand", car.brand);
+    bodyEncoded.append("model", car.model);
+    bodyEncoded.append("kms", car.kms.toString());
+    bodyEncoded.append("year", car.year.toString());
+    let body = bodyEncoded.toString();
+
+    return this.http.put(apiUrl + "/" + id, body, httpOptions);
   }
 
   private handleError<T>(operation = "operation", result?: T) {

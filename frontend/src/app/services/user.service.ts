@@ -14,7 +14,7 @@ const httpOptions = {
     "Content-Type": "application/x-www-form-urlencoded" }),
 
 };
-const apiUrl = "http://localhost:8080/api/buyandsell/users/";
+const apiUrl = "http://localhost:8080/api/buyandsell/users";
 
 @Injectable({
   providedIn: "root",

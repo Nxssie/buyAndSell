@@ -52,6 +52,8 @@ public class ICarServiceImpl implements ICarService {
         Optional <Car> c = iCarDao.findById(id);
 
         if (c.isPresent()) {
+            User u = c.get().getUser();
+            car.setUser(u);
             car.setId(id);
             iCarDao.save(car);
         }
