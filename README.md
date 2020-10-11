@@ -32,6 +32,7 @@ Backend
 * Spring
 * Xampp w/ MariaDB (just a personal preference over Oracle's MySQL service)
 * [Postman](https://documenter.getpostman.com/view/13039694/TVRkaTWY)
+    * could have some errors with Documentation readability due to markup language :flushed:
 
 ## License :newspaper:
 [MIT](https://choosealicense.com/licenses/mit/)
