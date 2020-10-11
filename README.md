@@ -20,7 +20,7 @@ ionic serve
 
 * This app works better in smaller devices because its UI design. <br>
 * This is just a project. Who knows about the future. But now I'm interested in learning other things. <br>
-* There is a Login/Reister system that is all manually coded without security premises. It means it can work in a weird way depending on the page and its implementation.
+* There is a Login/Register system that is all manually coded without security premises. It means it can work in a weird way depending on the page and its implementation.
 
 ## Built (frameworks and tools) :fire:
 Frontend 
