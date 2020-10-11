@@ -1,6 +1,10 @@
+create database buyandsell;
+
+use buyandsell;
+
 create table users
 (
-    id       bigint      not null
+    id       bigint auto_increment
         primary key,
     username varchar(20) null,
     email    varchar(70) null,

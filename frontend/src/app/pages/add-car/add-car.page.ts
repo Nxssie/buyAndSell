@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { CarService } from 'src/app/services/car.service';
+import { Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-add-car',
@@ -19,10 +20,10 @@ export class AddCarPage implements OnInit {
               private userService: UserService,
               private carService: CarService) {
                 this.addCarForm = this.fb.group({
-                  brand: [''],
-                  model: [''],
-                  kms: [''],
-                  year: ['']
+                  brand: ['', [Validators.required, Validators.minLength(3)]],
+                  model: ['', [Validators.required, Validators.minLength(2)]],
+                  kms: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+                  year: ['', [Validators.required, Validators.pattern('^(20[0-2][0-9]|19[0-9][0-9])$')]]
                 })
                }
 
@@ -34,8 +35,13 @@ export class AddCarPage implements OnInit {
     console.log(this.userService.getCurrentUserId());
   }
 
+  get errorControl() {
+    return this.addCarForm.controls;
+  }
+
   onFormSubmit() {
     if(!this.addCarForm.valid) {
+      console.log('Please provide all the required values!')
       return false;
     } else {
       let car = {

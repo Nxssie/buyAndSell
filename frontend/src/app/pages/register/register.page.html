@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Register</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,17 +15,36 @@
           <ion-label position="floating">Email</ion-label>
           <ion-input formControlName="email" type="email" required></ion-input>
         </ion-item>
-  
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          Email is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.minlength">
+          Email should be min 2 chars long.
+        </span>  
+
         <ion-item>
           <ion-label position="floating">Username</ion-label>
           <ion-input formControlName="username" type="text" required></ion-input>
         </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.required">
+          Username is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.minlength">
+          Username should be min 3 chars long.
+        </span>  
+
 
         <ion-item>
           <ion-label position="floating">Password</ion-label>
           <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
-  
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+          Password is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.minlength">
+          Password should be min 6 chars long.
+        </span>  
+
         <ion-row>
           <ion-col>
             <ion-button type="submit" color="primary" shape="full" expand="block">Register</ion-button>
